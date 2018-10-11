@@ -1,0 +1,262 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+button:hover{
+    outline: none;
+}
+
+button:focus{
+    outline: none;
+}
+
+h1{
+    margin: 0 !important;
+}
+
+header{
+    overflow: hidden;
+    background: url(../img/background.png) no-repeat center center/cover;
+}
+
+.nav_menu_logo{
+    padding: 40px 0;
+    font-family: 'Indie Flower', cursive;
+    color: white;
+}
+
+.nav_menu_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_menu_list ul{
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+}
+
+.nav_menu_list li{
+    position: relative;
+    margin-left: 15px;
+    color: white;
+    padding: 5px 20px;
+    
+    transition: all ease .5s;
+    z-index: 5;
+}
+
+.nav_menu_list li:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(to bottom, #323b41, #45515a);
+    opacity: 0;
+    transition: 1s;
+    z-index: -1;
+}
+
+.nav_menu_list li:hover:before{
+   opacity: 1;
+    transition: all ease .5s;
+    
+}
+
+.iphone_wrapper{
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: -4px;
+}
+
+.iphone_wrapper img{
+  height: auto;
+  max-width: 100%;
+}
+
+.header_text{
+    margin-top: 80px;
+}
+
+.header_text h1{
+    font-size: 48px;
+    letter-spacing:1px;
+    color: white;
+}
+
+.header_text p{
+    line-height: 1.3;
+    color: white;
+}
+
+.header_text .grey_p{
+    color: white;
+    opacity: .5;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.header_text button{
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    padding: 15px 46px;
+    border: none;
+    border-radius: 20px;
+    background-color: #3b91d0;
+    box-shadow: 0px 5px 22px 0px rgba(50, 50, 50, 0.75);
+}
+
+.header_text span{
+    color: white;
+    margin: 0 20px;
+}
+
+.header_text a{
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.header_text a::before{
+    content: '';
+    display: inline-block;
+    margin-right: 9px;
+    width: 16px;
+    height: 12px;
+    background: url(../img/computer_icon.png) no-repeat;
+}
+
+section{
+    overflow: hidden;
+    width: 100%;
+}
+
+#logos{
+    background:linear-gradient(to bottom, #f0f0f0, #e6e6e6);
+    border-bottom: 2px solid #c3c3c3;
+}
+
+.logos_wrapper{
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+
+.logo_wrapper{
+    display: flex;
+
+}
+
+.fix{
+    margin-left: -20px;
+}
+
+.slide_item{
+   height:200px;
+}
+
+.slide_item img{
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+}
+
+   /* the slides */
+   .slick-slide {
+    margin: 0 px;
+    margin: 0px;
+  }
+  /* the parent */
+
+
+.slick-next:before{
+    display: block;
+    content: ''!important;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: -10px;
+    background: url(../img/buttonright.png) no-repeat center center/cover;
+}
+
+.slick-prev:before{
+    display: block;
+    content: ''!important;
+    width: 30px;
+    height: 30px;
+    margin-left: -20px;
+    margin-top: -10px;
+    background: url(../img/buttonleft.png) no-repeat center center/cover;
+}
+
+.read_more_block{
+    padding-top: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.read_more_block h2{
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    color: #7a858d;
+    font-weight: 400;
+}
+
+.read_more_block p{
+    line-height: 1.3;
+    text-align: center;
+    font-size: 14px;
+    opacity: .5;
+}
+
+.read_more_img{
+    width: 140px;
+    height: 140px;
+    background: url(../img/read_more_1.png) no-repeat center center/cover;
+}
+
+.read_more_block button{
+    margin-top: 20px;
+    margin-bottom: 80px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 13px;
+    color: white;
+    padding: 14px 23px;
+    border-radius: 5px;
+    border: none;
+    background:linear-gradient(to bottom, #57a0d2, #498dca)
+}
+
+.wrapper_bg{
+    background:linear-gradient(to bottom, #f2f2f2, #fff);
+}
+
+.selected_projects{
+  margin-bottom: 80px;
+}
+
+.selected_projects h2::before{
+
+    display: inline-block;
+    content: '';
+    width: 25px;
+    margin-right: 10px;
+    margin-bottom: -2px;
+    height: 25px;
+    background: url(../img/selected_pre_icon.png) no-repeat center center/cover;
+}
