@@ -30,7 +30,7 @@
                       <div class="nav_menu_logo">
                             <h1>Apptastico</h1>
                      </div>
-
+                     <div class="menu_mobile mtest"><div class="menu_mobile_block"></div></div>
                       <div class="nav_menu_list">
                             <ul>
                                 <a href="#"><li><span>Home</li></a>
@@ -42,15 +42,23 @@
                     </div>
                 </div>
             </div>
-
+<div class="row">
+    <div class="menu_mobile_list">
+        <div class="menu_mobile_list_item"><a href="#">Home</a></div>
+        <div class="menu_mobile_list_item"><a href="#">About</a></div>
+        <div class="menu_mobile_list_item"><a href="#">Work</a></div>
+        <div class="menu_mobile_list_item"><a href="#">Contact</a></div>
+        
+    </div>
+</div>
             <div class="row">
-                <div class="col-lg-5 wow fadeInUp">
+                <div class="d-none d-lg-block col-lg-5 wow fadeInUp">
                     <div class="iphone_wrapper">
                         <img src="img/iPhone.png"  alt="iPhone">
                     </div>
                 </div>
 
-                <div class="col-lg-6 offset-lg-1 header_text wow fadeInRight">
+                <div class="col-md-12 col-lg-6 offset-lg-1 header_text wow fadeInRight">
                     <h1>We design iOS apps</h1>
                     <p>Ut In Nulla Enim. Phasellus Molestie Magna Non Est Bibendum Non Venenatis ut In Nulla Enim. Phasellus Molestie.</p>
                     <p class="grey_p">Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie tempor. Suspendisse dictum feugiat.</p>
@@ -194,6 +202,8 @@
     </footer>
 </div>
 
+
+
 <script src="pluigns/wow.min.js"></script>
 <script>new WOW().init();</script>
       <script
@@ -214,7 +224,15 @@
         });
       </script>
     
-
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.mtest').click(function(){
+               $('.menu_mobile_block').toggleClass('active');
+               $('.menu_mobile_list').slideToggle("slow");
+            });
+        });
+     
+    </script>
 
 
     <script type="text/javascript" src="pluigns/jquery.smoothscroll.js"></script>

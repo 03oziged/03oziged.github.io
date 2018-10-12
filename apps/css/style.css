@@ -365,3 +365,169 @@ section{
     font-size: 20px;
     margin-left: 10px;
 }
+
+
+
+
+.menu_mobile{
+    display: none;
+    width: 40px;
+    height: 30px;
+    position: relative;
+}
+.menu_mobile_block.active{
+    transition: .5s;
+   background-color: transparent;
+ 
+}
+
+.menu_mobile_block.active::after{
+    transform: rotate(45deg);
+    top: 0;transition: .5s;
+}
+
+.menu_mobile_block.active::before{
+    transform: rotate(-45deg);
+    top: 0;transition: .5s;
+}
+
+.menu_mobile_block{
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    transition: .5s;
+    transform: translateY(-50%);
+    background-color: white;
+}
+
+.menu_mobile_block::before{
+    content: '';
+    width: 100%;
+    height: 4px;
+    top: -8px;
+    position: absolute;
+    background-color: white;transition: .5s;
+}
+
+.menu_mobile_block::after{
+    content: '';
+    width: 100%;
+    height: 4px;
+    top: 8px;
+    position: absolute;
+    background-color: white;transition: .5s;
+}
+
+.menu_mobile_list{
+    display: none;
+    margin: 0 auto;
+    width: 90%;
+
+}
+
+.menu_mobile_list_item{
+   
+    line-height: 40px;
+    text-align: center;
+  
+    height: 40px;
+    background-color: #ffffff;
+    margin: 3px 0;
+    
+}
+
+@media (max-width: 1200px) {
+
+    .iphone_wrapper{
+  
+    }
+
+    .header_text{
+        margin-bottom: 60px !important;
+    }
+
+    .border_bottom{
+        margin-top: 30px;
+    }
+
+    .header_text{
+        text-align: center;
+        margin-bottom: 100px;
+    }
+
+}
+    @media (max-width: 990px) {
+
+        .read_more_block h2{
+            font-size: 20px;
+        }
+
+
+@media (max-width: 768px) {
+    .nav_menu_list{
+        display: none;
+    }
+
+    .selected_projects{
+        margin-bottom: 30px;
+    }
+
+    .read_more_block{
+        padding-top: 40px;
+    }
+
+    .read_more_block button{
+        margin-bottom: 0;
+    }
+
+    .menu_mobile{
+        display: block;
+    }
+
+    .read_more{
+        margin-bottom: 50px;
+    }
+}
+
+.mtest{
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 520px) {
+    .logos_wrapper{
+      width: 100%;
+    }
+
+    .logo_wrapper{
+       width: 20%;
+    }
+
+    .logo_wrapper img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .fix{
+        margin: 0;
+    }
+
+    .logo_wrapper{
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 470px) {
+    .header_text button{
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .header_text span{
+        display: block;
+        margin-bottom: 5px;
+    }
+}
