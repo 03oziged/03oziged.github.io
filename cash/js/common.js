@@ -8,6 +8,9 @@ $(function() {
 	$('.sales').click(function(){
 		$('.mobile_under_menu').slideToggle();
 	});
+	$('.mobile_tizer').click(function(){
+		$('.tizer_sub').slideToggle();
+	});
 	$( ".second_list" ).remove();
 }
 
