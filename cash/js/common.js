@@ -1,4 +1,7 @@
 $(function() {
+	$('.open').click(function(){
+		$('.right_sub_menu').slideToggle();
+	});
 
 	if (window.matchMedia('(max-width: 998px)').matches){
 
