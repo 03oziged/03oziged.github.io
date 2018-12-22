@@ -1,4 +1,5 @@
 $(function() {
+	setTimeout(function(){ $('.before_all_block').slideToggle(); }, 5000);
 	$('.open').click(function(){
 		$('.right_sub_menu').slideToggle();
 	});
