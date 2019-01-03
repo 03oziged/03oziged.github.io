@@ -457,13 +457,54 @@
 							Показать/Скрыть оценки
 						</div>
 						<div class="feedback_points_right">
-							<span> Считаете отзыв полезным? </span>
+							<span > Считаете отзыв полезным? </span>
 							<img src="img/feedback_plus2.png" alt="">
 							<span class="rating">-15</span>
 							<img src="img/feedback_low.png" alt="">
 						</div>
+					</div>	
 					</div>
-				</div>
+					<div class="comment_block">
+							<textarea placeholder="Текст комментария" name="textarea"></textarea>
+						<span class="attach">Прикрепить</span>
+						<button>Отправить комментарий</button>
+					</div>
+
+					<div class="add_feedback">
+						<h3>Добавить отзыв</h3>
+						<div class="add_feedback_main">
+							<form action="POST" class="add_feedback_form">
+								<div class="name_block_form">
+								<div class="name">Ваше имя</div>
+									<input type="text" class="name_form">
+									<input type="text" placeholder="E-mail" class="mail_form">
+								</div>
+								<div class="pluses_block_form">
+									<div class="pluses">Достоинства</div>
+									<input type="text" class="pluses_form">
+								</div>
+								<div class="minuses_block_form">
+									<div class="minuses">Недостатки</div>
+									<input type="text" class="minuses_form">
+								</div>
+								<div class="years_block_form">
+									<div class="years">Опыт использования</div>
+									<select>
+											<option> Один год </option>
+											<option> Два года </option>
+											<option> Более длинный промежуток </option>
+									</select>
+								</div>
+								<div class="replay_block_form">
+									<div class="replay">Отзыв</div>
+									<textarea class="replay_text" name="replay_text" placeholder="Опишите здесь ваше мнение.."></textarea>
+								</div>
+							</form>
+							<span class="attach">Прикрепить</span>
+						<button>Отправить комментарий</button>
+						</div>
+					</div>
+				</div> <!--LEFT PART-->
 			</div>
 		</div>
 
@@ -505,6 +546,48 @@
 			</ul>
 		</div>
 	</section>
+
+	<footer>
+		<div class="flex_wrapper">
+			<div class="to_client_wrapper">
+				<a href="#"><span>Клиенту</span></a>
+				<ul class="to_client">
+					<li><a href="#">О сайте</a></li>
+					<li><a href="#">Каталог магазинов</a></li>
+					<li><a href="#">Обратная связь</a></li>
+					<li><a href="#">F.A.Q</a></li>
+				</ul>
+			</div>
+			<div class="to_client_wrapper">
+				<a href="#"><span>Партнеру</span></a>
+				<ul class="to_client">
+					<li><a href="#">Дебетовые карты</a></li>
+					<li><a href="#">Доходные карты</a></li>
+					<li><a href="#">Бесплатные дебетовые карты</a></li>
+					<li><a href="#">Карты с кэшбеком</a></li>
+					<li><a href="#">Карты с овердрафтом</a></li>
+				</ul>
+			</div>
+			<div class="to_client_wrapper">
+				<a href="#"><span>Информация</span></a>
+				<ul class="to_client">
+					<li><a href="#">Курс доллара</a></li>
+					<li><a href="#">Курс евро</a></li>
+					<li><a href="#">Курс доллара ЦБ РФ</a></li>
+					<li><a href="#">Курс евро ЦБ РФ</a></li>
+				</ul>
+			</div>
+			<div class="to_client_wrapper">
+				<a href="#"><span>Мы в соц. сетях</span></a>
+				<ul class="to_client">
+					<li><a href="#">VK</a></li>
+					<li><a href="#">YT</a></li>
+					<li><a href="#">Facebook</a></li>
+					<li><a href="#">Twitter</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
 
 	<script src="js/scripts.min.js"></script>
 
