@@ -123,7 +123,7 @@ function res(str){
 }
 
 function count (sign, point1, point2){
-  return sign == '+' ? +point1 + +point2 : sign == '-'  ? +point1 - +point2 : sign == '*' ? +point1 * +point2 : 'test';
+  return sign == '+' ? +point1 + +point2 : sign == '-'  ? +point1 - +point2 : sign == '*' ? +point1 * +point2 : +point1 / +point2;
 }
 
 console.log(+'0.12');
