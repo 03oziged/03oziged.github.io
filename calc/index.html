@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>kovsh huevsh</title>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        background-color: rgba(245, 245, 245, 0.753);
+    }
+    button{
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border: 1px solid black;
+        margin: 5px 0 5px 0;
+    }
+
+    #reset{
+        width: 100%;;
+    }
+    button:focus{
+        outline: none; 
+    }
+    button:active{
+        background-color: rgb(224, 224, 224);
+    }
+    p{
+        line-height: 50px;
+        padding: 10px;
+        height: 50px;
+        width: 200px;
+        outline: 1px solid black;
+        background-color: white;
+    }
+    .wrapper{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+ 
+</script>
+</head>
+<body>
+    <div class="wrapper">
+    <p id="p"></p>
+    <div class="wrapper_column">
+    <div class="button1">
+        <button id = "1">1</button>
+        <button id = "2">2</button>
+        <button id = "3">3</button>
+        <button id = "-">-</button>
+    </div>
+    
+
+    <div class="button2">
+        <button id = "4">4</button>
+        <button id = "5">5</button>
+        <button id = "6">6</button>
+        <button id = "+">+</button>
+    </div>
+
+    <div class="button3">
+        <button id = "7">7</button>
+        <button id = "8">8</button>
+        <button id = "9">9</button>
+        <button id = "*">*</button>
+    </div>
+
+    <div class="button3">
+        <button id = "0">0</button>
+        <button id = ".">.</button>
+        <button id = "=">=</button>
+        <button id = "/">/</button>
+    </div>
+    
+    <button id="reset">RESET</button>
+</div>
+</div>
+
+</body>
+<script src="testnext.js"></script>
+</html>
