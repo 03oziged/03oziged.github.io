@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function func(x){
+//   console.log("FUNC ("+x+') = '+(Math.sqrt(x)+(x*x)-10));
+//   return Math.sqrt(x)+(x*x)-10;
+  
+// }
+
+function func(x){
+  // var test = Math.pow(x,5)+Math.pow(x,4)-(Math.pow(x,3)/3)+2;
+  // console.log(x+'//'+test);
+  return Math.pow(x,5)+Math.pow(x,4)-(Math.pow(x,3)/3)+2;
+  
+}
+var count = 0;
+var a = -1;
+var b = 1;
+var L = b-a;
+var accuracy = 0.0001;
+while(Math.abs(L)>accuracy){
+
+
+var xm = (a+b)/2;
+
+var x1 = a+L/4;
+var x2 = b-L/4;
+  if (func(x1)<func(xm)){
+    b = xm;
+    xm = x1;
+  } else if (func(x2)<func(xm)){
+    a = xm;
+    xm = x2;
+  } else if (func(x2)>=func(xm)){
+    a = x1;
+    b = x2;
+  }
+  L = b-a;
+  count++;
+  console.log("L = "+L);
+  console.log("a = "+a);
+  console.log("b = "+b);
+}
+
+
+console.log("B = "+b);
+console.log(a);
+console.log(func((a+b)/2));
+console.log("COUNT = "+count)
+    </script>
+</body>
+</html>

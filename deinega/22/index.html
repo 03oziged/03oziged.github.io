@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+    var goldenRatio = (1 + Math.sqrt(5)) / 2; // "Золотое" число
+ 
+
+//  function func ( x )  {
+// 	return Math.log(1 + x * x - Math.cos(x)) - Math.pow(Math.E, Math.sin(Math.PI * x));
+// }
+function func(x){
+  return Math.pow(x,5)+Math.pow(x,4)-(Math.pow(x,3)/3)+2;
+  
+}
+
+// function func(x){
+//   return Math.pow(x,4)-(12*x)+3;
+  
+// }
+	var a = -1, b = 1; // Концы отрезка
+	var accuracy = 0.0001; // Точность, с которой мы находим локальный максимум
+	var x1, x2; // Точки, делящие текущий отрезок в отношении золотого сечения
+	while (Math.abs(b - a) > accuracy) {
+		   x1 = b - (b - a) / goldenRatio; 
+	       x2 = a + (b - a) / goldenRatio;
+	       if (func(x1) >= func(x2)) // Условие для поиска максимума
+	           a = x1; 
+	       else 
+	           b = x2;
+	} // Выполняем, пока не достигнем заданной точности
+	console.log("(" + (a + b) / 2 + ", " + func((a + b) / 2) + ")"); 
+	
+
+
+// function func(x){
+//   return Math.log(1 + x * x - Math.cos(x)) - Math.pow(Math.E, Math.sin(Math.PI * x));
+// }
+
+// var a = -1;
+// var b = 1;
+// var accuracy = 0.0001;
+// var L = b-a;
+
+// var x1 = a+0.382*(b-a);
+// var x2 = a+0.618*(b-a);
+
+// while (Math.abs(L)>accuracy){
+
+//   if(func(x1)<func(x2)){
+//     b = x2;
+//     L = b-a;
+//     x2 = a+0.618*(b-a);
+//   } else {
+//     a = x1;
+//     L = b-a; 
+//     x1 = a+0.382*(b-a);
+//   }
+// }
+
+console.log("Минимум находится в точке "+(a+b)/2+", минимальное значение функции = "+func((a+b)/2));    
+//https://studfiles.net/preview/6008218/page:20/
+//http://dit.isuct.ru/IVT/sitanov/Literatura/M171/Pages/Glava1_3.htm
+
+console.log(func(0.2));
+console.log(func(0.3));
+console.log(func(0.4));
+console.log(func(0.5));
+console.log(func(0.6));
+console.log(func(0.7));
+console.log(func(0.8));
+console.log(func(0.9));
+</script>
+</body>
+</html>

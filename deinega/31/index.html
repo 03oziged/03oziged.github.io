@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    p{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        font-size: 20px;
+        transform: translate(-50%, -50%);
+        display: inline;
+        background-color: rgba(7, 7, 7, 0.671);
+        color: white;
+    }
+</style>
+<body>
+
+<p id="res"></p>
+    
+<script>
+function func(x){
+  return Math.pow(x,4)+8*Math.pow(x,3)-6*Math.pow(x,2)-72*x;
+}
+
+var 
+    x1 = 3,
+    xDel = 1,
+    x2 = x1 + xDel,
+    x3,
+    Fmin,
+    Xmin,
+    a1,
+    a2,
+    _x,
+    checkSearchFnow,
+    checkSearchXnow,
+    checkSearchF = 0.003,
+    checkSearchX = 0.03;
+
+if (func(x1) > func(x2)) x3 = x1 + 2 * xDel;
+else if (func(x1) <= func(x2)) x3 = x1 - xDel;
+
+do {
+
+  Fmin = Math.min(func(x1), func(x2), func(x3));
+  if (Fmin == func(x1)) Xmin = x1;
+  if (Fmin == func(x2)) Xmin = x2;
+  if (Fmin == func(x3)) Xmin = x3;
+ 
+  a1 = (func(x2) - func(x1)) / (x2 - x1);
+  a2 = (((func(x3) - func(x1)) / (x3 - x1)) - ((func(x2) - func(x1)) / (x2 - x1))) / (x3 - x2);
+  _x = (x2 + x1) / 2 - (a1 / (2 * a2));
+
+  checkSearchFnow = Math.abs((Fmin - func(_x)) / func(_x));
+  checkSearchXnow = Math.abs((Xmin - _x) / _x);
+
+  if ( checkSearchFnow > checkSearchF || checkSearchXnow > checkSearchX ){
+    var xRate = [x1, x2, x3, _x].sort();
+    x1 = xRate[0];
+    x2 = xRate[1];
+    x3 = xRate[2]; 
+  }
+}
+
+while ( checkSearchFnow > checkSearchF || checkSearchXnow > checkSearchX )
+
+console.log('Точка минимума : ' + _x + ', значение функции в точке : ' + func(_x))
+document.getElementById('res').innerHTML += 'Точка минимума : ' + _x + ', значение функции в точке : ' + func(_x);
+
+
+// http://matica.org.ua/metodichki-i-knigi-po-matematike/metody-optimizatcii-nekrasova-m-g/4-7-metod-pauella
+</script>
+</body>
+</html>
