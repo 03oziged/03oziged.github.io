@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <script>
+    let Obj = {};
+    let res = '';
+    let string = prompt('Введите желаемый текст для проверки работы');
+      for (let i = 0; i < string.length; i++){
+        if (Obj.hasOwnProperty(string[i])) break;
+        Obj[string[i]] = true;
+        res += string[i];
+      }
+
+    console.log(`Строка введённая пользователем: ${string}`);
+    console.log(`Строка до первого повторяющегося символа: ${res}`);
+    console.log(`Длина итоговой строки: ${res.length}`);
+  </script>
+
+</body>
+
+</html>
