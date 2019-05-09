@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    td{
+      height: 50px;
+      width: 50px;
+      background-color: rgb(238, 238, 238);
+      box-shadow: 0 0 10px rgba(0,0,0,.02);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+ <div id="button_field">
+
+ </div>
+
+  <script>
+   
+    let table = '<table>';
+    let test = []
+    let field = document.getElementById('button_field');
+    let steps = prompt('Укажите N (размерность матрицы = NxN', 5);
+    let counter = +prompt('Укажите начальное число для отсчёта', 0);
+    let check = 0;
+    let stepsSave = steps;
+    for (let i = 0; i < steps; i++) test[i] = new Array(steps);
+    let a = 0;
+    let b = 0;
+    
+    start();
+
+    function start(){
+      for (let i = 0; i < steps; i++){
+        test[a][b] = counter;
+        counter++;
+        b++;
+      }
+      b--;
+      steps--;
+      down();
+    }
+
+    function down(){
+      if (!steps) return;
+      for (let i = 0; i < steps; i++){
+        a++;
+        test[a][b] = counter;
+        counter++;
+      }
+      check++;
+      if (!(check % 2)) steps--;
+      left();
+    }
+
+    function left(){
+      if (!steps) return;
+      for (let i = 0; i < steps; i++){
+        b--;
+        test[a][b] = counter;
+        counter++;
+      }
+      check++;
+      if (!(check % 2)) steps--;
+      up();
+    }
+
+    function up(){
+      if (!steps) return;
+      for (let i = 0; i < steps; i++){
+        a--;
+        test[a][b] = counter;
+        counter++;
+      }
+      check++;
+      if (!(check % 2)) steps--;
+      right();
+    }
+
+    function right(){
+      if (!steps) return;
+      for (let i = 0; i < steps; i++){
+        b++;
+        test[a][b] = counter;
+        counter++;
+      }
+      check++;
+      if (!(check % 2)) steps--;
+      down();
+    }
+
+    showMatrix();
+
+    function showMatrix(){
+      for ( let i = 0; i < stepsSave; i++){
+        table += '<tr>'
+        for( let j = 0; j < stepsSave; j++){
+          table += `<td>${test[i][j]}</td>`;
+        }
+        table += '</tr>';
+      }
+      table += '</table>'
+      field.innerHTML = table;
+    }
+  </script>
+
+</body>
+
+</html>
