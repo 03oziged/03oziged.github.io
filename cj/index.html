@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+    height: 200vh;
+  }
+  #test{
+    height: 200px;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div id="test"></div>
+<img style="margin: 50px" id="img" src="https://steamuserimages-a.akamaihd.net/ugc/982233684666805206/00C177694F6A19977FDD1666FDB3D206FC9DA79B/" alt="">
+
+  <script>
+  var img = document.getElementById('img');
+  img.ondragstart = () => false;
+  let rect = img.getBoundingClientRect();
+  let css = getComputedStyle(img);
+
+img.onmousedown = e => {
+  img.style.position = 'absolute';
+  let saveX = e.offsetX;
+  let saveY = e.offsetY; 
+
+  document.onmousemove = e => {
+    img.style.position = 'absolute';
+    img.style.top = e.clientY-parseInt(css.margin)-saveY+'px';
+    img.style.left = e.clientX-parseInt(css.margin)-saveX+'px';
+  }
+}
+
+img.onmouseup = e => {
+  document.onmousemove = () => false;
+}
+
+
+    
+  </script>
+
+</body>
+</html>
