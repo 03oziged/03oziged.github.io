@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .timer{
+      width: 500px;
+      height: 50px;
+      background-color: white;
+      outline: 2px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" name="setDate" placeholder="MM/DD/HH/MIN">
+  <button id="createButton">Создать таймер</button>
+  
+  <script>
+    let input = document.querySelector('input[name = setDate]');
+    let createButton = document.querySelector('#createButton');
+
+
+    class Timer{
+      constructor(date){
+        this.end = date.getTime();
+        this.interval;
+        this.timerDiv;
+      }
+
+      generate() {
+        this.timerDiv = document.createElement('div');
+        this.buttonStop = document.createElement('button');
+        this.buttonStart = document.createElement('button');
+        this.months = document.createElement('span');
+        this.days = document.createElement('span');
+        this.hours = document.createElement('span');
+        this.minutes = document.createElement('span');
+        this.seconds = document.createElement('span');
+        this.mili = document.createElement('span');
+
+        this.months.classList.add('months');
+        this.days.classList.add('days');
+        this.hours.classList.add('hours');
+        this.minutes.classList.add('minutes');
+        this.seconds.classList.add('seconds');
+        this.mili.classList.add('mili');
+
+        this.buttonStart.textContent = 'START';
+        this.buttonStop.textContent = 'STOP';
+        this.buttonStop.onclick = () => this.pauseCount();
+        this.buttonStart.onclick = () => this.startCount();
+
+        this.timerDiv.classList.add('timer');
+        this.timerDiv.append(this.months);
+        this.timerDiv.append(this.days);
+        this.timerDiv.append(this.hours);
+        this.timerDiv.append(this.minutes);
+        this.timerDiv.append(this.seconds);
+        this.timerDiv.append(this.mili);
+        this.timerDiv.append(this.buttonStart);
+        this.timerDiv.append(this.buttonStop);
+
+        document.body.append(this.timerDiv);
+      }
+      
+      startCount() {
+        this.updateTime();
+        this.interval = setInterval(this.updateTime.bind(this));
+      }
+
+      pauseCount() {
+        clearInterval(this.interval);
+      }
+
+      updateTime() {
+        let temp = this.end - Date.now()
+
+        let months = Math.floor(temp / 2592000000);
+        let days = Math.floor((temp - (2592000000 * months)) / 86400000);
+        let hours = Math.floor((temp - (2592000000 * months) - 86400000 * days) / (1000*3600));
+        let minutes = Math.floor((temp - (2592000000 * months) - (86400000 * days) - (1000 * 3600 * hours)) / (1000 * 60));
+        let seconds = Math.floor(((temp - (2592000000 * months) - (86400000 * days) - (1000 * 3600 * hours) - (1000 * 60 * minutes)) / 1000));
+        let mili = Math.floor((temp - (2592000000 * months) - (86400000 * days) - (1000 * 3600 * hours) - (1000 * 60 * minutes) - (1000 * seconds)) / 10);
+
+        let fixZero = validateOutput(months, days, hours, minutes, seconds, mili);
+        console.log(`${fixZero[0]}:${fixZero[1]}:${fixZero[2]}:${fixZero[3]}:${fixZero[4]}:${fixZero[5]}`);
+        drawTime.apply(this, [...fixZero]);
+
+        function validateOutput(mon, day, h, min, sec, mili) {
+          let result = [];
+          for (let i = 0; i < arguments.length; i++) {
+            if ((''+arguments[i]).length == 1) result.push('0'+arguments[i]);
+            else result.push(arguments[i]);
+          }
+          return result;
+        }
+
+        function drawTime() {
+          let months = arguments[0];
+          let days = arguments[1];
+          let hours = arguments[2];
+          let minutes = arguments[3];
+          let seconds = arguments[4];
+          let mili = arguments[5];
+
+          this.months.textContent = months+':';
+          this.days.textContent = days+':';
+          this.hours.textContent = hours+':';
+          this.minutes.textContent = minutes+':';
+          this.seconds.textContent = seconds+':';
+          this.mili.textContent = mili;
+        }
+      }
+    }
+
+    createButton.onclick = () => {
+      let inputArray = input.value.split('/');
+      validateInput(inputArray);
+      let timer = new Timer(new Date(new Date().getFullYear(), 
+                                            +inputArray[0]-1, 
+                                            +inputArray[1], 
+                                            +inputArray[2],
+                                            +inputArray[3]));
+      timer.generate();
+      timer.startCount();
+
+
+      function validateInput(array) {
+        for (let i = 0; i < 4; i++) {
+          if (array[i] === undefined) array[i] = 0;
+        }
+      }
+    }
+ </script>
+</body>
+
+</html>
