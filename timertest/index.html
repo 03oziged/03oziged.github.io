@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    ::-webkit-scrollbar {
+  width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.3);
+}
+    body{
+      font-family: Arial;
+    }
+    div{
+      }
+
+      .timer_counters {
+        display: flex;
+      }
+    body{
+      background: #e2e2e2;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* .sound{
+  width: 50px;
+  height: 50px;
+  background-color: white;
+} */
+  button{
+    border: none;
+    cursor: pointer;
+  }
+  button:focus{
+    outline: none;
+  }
+
+  .buttons_wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+  }
+    .start_button{
+      transition: .5s;
+      background-color: rgba(85, 241, 85, 0.335);
+      border: 2px solid rgba(0, 128, 0, 0.589);
+      border-radius: 10px;
+      padding: 0 18px 0 18px;
+      height: 40px;
+      box-shadow: 0px 0px 40px 0px rgba(89, 255, 89, 0.438);
+      margin: 10px;
+      font-size: 13px;
+    }
+
+    .start_button:hover {
+      box-shadow: 0px 0px 40px 10px rgba(89, 255, 89, 0.452);
+    }
+
+    .stop_button{
+      transition: .5s;
+      background-color: rgba(241, 85, 85, 0.335);
+      border: 2px solid rgba(128, 0, 0, 0.589);
+      border-radius: 10px;
+      padding: 0 18px 0 18px;      
+      height: 40px;
+      box-shadow: 0px 0px 40px 0px rgba(255, 89, 89, 0.438);
+      margin: 10px;
+      font-size: 13px;      
+    }
+
+    .stop_button:hover {
+      box-shadow: 0px 0px 40px 10px rgba(255, 89, 89, 0.452);
+    }
+
+    .delete_button{
+      transition: .5s;
+      background-color: rgba(85, 231, 241, 0.335);
+      border: 2px solid rgba(54, 159, 167, 0.514);
+      border-radius: 10px;
+      padding: 0 18px 0 18px;
+      height: 40px;
+      box-shadow: 0px 0px 40px 0px rgba(85, 231, 241, 0.335);
+      margin: 10px;
+      font-size: 13px;
+    }
+
+    .delete_button:hover {
+      box-shadow: 0px 0px 40px 10px rgba(85, 231, 241, 0.335);
+    }
+
+
+    .timer{
+      margin-top: 50px;
+      align-items: center;
+      color: white;
+      border-radius: 10px;
+      transition: 2s;
+    }
+    .counter_point{
+      position: relative;
+      font-size: 4rem;
+      padding: 20px;
+      background-color: black;
+      margin: 0 5px 0 5px;
+      box-shadow: 0px 0px 10px -6px rgba(0,0,0,.7);
+    }
+
+    .counter_point_bottom_text {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-transform: uppercase;
+      font-size: .7rem;
+    }
+
+    .counter_point_wrapper {
+      position: relative;
+      min-width: 120px;
+    }
+
+    .sound_wrapper{
+      position: relative;
+      width: 150px;
+      margin: 10px;
+    }
+
+    .sound_option {
+      cursor: pointer;
+      color: white;
+      height: 20px;
+      display: block;
+      padding: 5px 0 5px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.199);
+      /* background-color: #AB3326; */
+    }
+ 
+    .create_popup{
+      visibility: hidden;
+      display: flex;
+      width: 500px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(204, 204, 204, 0.445);
+      z-index: 100;
+    }
+
+
+    .select{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      color: white;
+      background-color: #AB3326;
+      text-align: center;
+      line-height: 40px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.199);
+      border-left: 1px solid rgba(0, 0, 0, 0.199);
+    }
+    .options{
+      width: 100%;
+      height: 300px;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      overflow-y: scroll; 
+      display: none;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0px 10px 14px -6px rgba(0,0,0,1);
+    }
+ 
+    .options:focus {
+      outline: none;
+    }
+
+ 
+    .months_block {
+      width: 150px;
+      position: relative;
+    }
+    .days_block, .hours_block, .mins_block {
+      width: 50px;
+      position: relative;
+    }
+
+    .option {
+      cursor: pointer;
+      color: white;
+      height: 19px;
+      display: block;
+      padding: 5px 0 5px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.199);
+      background-color: #AB3326;
+    }
+    .option:hover {
+      background-color: rgb(219, 109, 97);
+    }
+
+    .offScrollY {
+      overflow-y: auto;
+    }
+  
+    .show {
+      transition: 1s;
+      display: block;
+    }
+    .show_popup {
+      visibility: visible;
+    }
+
+    .sound_select {
+      width: 100%;
+      text-align: center;
+      color: black;
+      text-transform: uppercase;
+      line-height: 36px;
+      transition: .5s;
+      background-color: rgba(85, 231, 241, 0.335);
+      border: 2px solid rgba(54, 159, 167, 0.514);
+      border-radius: 10px;
+      height: 36px;
+      box-shadow: 0px 0px 40px 0px rgba(241, 85, 158, 0.335);
+      font-size: 13px;
+    }
+
+    /* .block_screen {
+      position: absolute;
+      background-color: black;
+      z-index: 99;
+      width: 100%;
+      height: 100%;
+    } */
+
+  </style>
+</head>
+
+<body>
+<button id="test">Добавить таймер</button>
+
+  <div class="create_popup">
+    <div class="days_block">
+        <div class="select" id="days_select"></div>
+        <div class="options" id="days_options"></div>
+    </div>
+
+    <div class="months_block">
+        <div class="select" id="months_select"></div>
+        <div class="options" id="months_options">
+          <div class="option">Январь</div>
+          <div class="option">Февраль</div>
+          <div class="option">Март</div>
+          <div class="option">Апрель</div>
+          <div class="option">Май</div>
+          <div class="option">Июнь</div>
+          <div class="option">Июль</div>
+          <div class="option">Август</div>
+          <div class="option">Сентябрь</div>
+          <div class="option">Октябрь</div>
+          <div class="option">Ноябрь</div>
+          <div class="option">Декабрь</div>
+        </div>
+    </div>
+
+    <div class="hours_block">
+        <div class="select" id="hours_select"></div>
+        <div class="options" id="hours_options"></div>
+    </div>
+
+    <div class="mins_block">
+        <div class="select" id="mins_select"></div>
+        <div class="options" id="mins_options"></div>
+    </div>
+    <button id="createButtonDateTimer">Создать таймер</button>
+    </div>
+
+
+
+  
+  
+  <script src="timer.js"></script>
+</body>
+
+</html>
